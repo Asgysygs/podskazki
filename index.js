@@ -34,4 +34,53 @@ const orc = eliteSeuad[1];
 
 
 
+
+
+
+
+
+
+
+
+import _ from 'lodash'; 
+export default function solution(content){
+
+//step1
+    const data = content.trim().split('\r\n').splice(1).map((row)=> row.split(';'));
+ 
+  
+  console.log(`Count: ${data.length}`);
+
+  // step2
+  const cities = data.map((el) => el[2])
+
+  console.log(`Cities: ${cities.join(', ')}`);
+
+
+  // step3
+
+  const salarey = _.max(data.map((el) => Number(el[5].split( ' ')[0])))
+  console.log(`Maximum salary: ${salarey}`)
+
+
+   // step 4
+   
+
+
+   const graduated = data.filter((el) => el[6].toLowerCase().includes('высшее'))
+
+   console.log(`Graduated: ${graduated.length}`)
+
+
+   // step5
+
+
+   const companyTypes = _.uniq(data.map((el) => el[0].split( ' ')[0]))
+   
+
+   console.log(`Company types: ${companyTypes.join(', ')}`)
+}
+
+
+
 // END
