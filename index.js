@@ -45,22 +45,22 @@ const orc = eliteSeuad[1];
 import _ from 'lodash'; 
 export default function solution(content){
 
-//step1
+//step1 распарсинг примерный
     const data = content.trim().split('\r\n').splice(1).map((row)=> row.split(';'));
  
   
-  console.log(`Count: ${data.length}`);
+  console.log(`Count: ${data.length}`); // вывод всех 
 
-  // step2
+  // step2 
   const cities = data.map((el) => el[2])
 
-  console.log(`Cities: ${cities.join(', ')}`);
+  console.log(`Cities: ${cities.join(', ')}`); // вывод городов с повторами 
 
 
   // step3
 
   const salarey = _.max(data.map((el) => Number(el[5].split( ' ')[0])))
-  console.log(`Maximum salary: ${salarey}`)
+  console.log(`Maximum salary: ${salarey}`)    // максимальная зарплата 
 
 
    // step 4
@@ -69,7 +69,7 @@ export default function solution(content){
 
    const graduated = data.filter((el) => el[6].toLowerCase().includes('высшее'))
 
-   console.log(`Graduated: ${graduated.length}`)
+   console.log(`Graduated: ${graduated.length}`)  // Выведите количество вакансий, в которых обязательнвм требованием является высшее образование. числа где есть слово высшее 
 
 
    // step5
@@ -78,7 +78,7 @@ export default function solution(content){
    const companyTypes = _.uniq(data.map((el) => el[0].split( ' ')[0]))
    
 
-   console.log(`Company types: ${companyTypes.join(', ')}`)
+   console.log(`Company types: ${companyTypes.join(', ')}`)  // Выведите все встречающиеся варианты типов компаний. Обратите внимание, что здесь нужно вывести только уникальные значения без дублей.
 }
 
 
