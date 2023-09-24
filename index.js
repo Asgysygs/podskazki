@@ -39,6 +39,84 @@ const orc = eliteSeuad[1];
 
 
 
+const colorsString = Object.entries(colors)
+.reduce((str, [key, value ]) => `${str}${key}: ${value},` , '')
+.slice(0,-2);
+ console.log(`Все цвета: ${colorsString}`);
+// вывести все цвета авто 
+
+
+
+
+
+
+
+
+
+
+// задача про средний пробег всех авто 
+const milage = _.mean(data.map((el) => Number(el[4]))) // через lodash 
+const avg = data.reduce((acc,el) => acc + Number(el[4]), 0 )/ data.length 
+console.log(`Средний пробег: ${avg}`)
+
+
+
+// максимальная стоямость 
+const maxPrise = _.max(data.map((el) => (el[7])))
+console.log(`Стоимость самой дорогой машины: ${maxPrise}`);
+
+
+
+//авто с самым ранним годом выпуска 
+const oldestCars =_.minBy(data, (el) => Number(el[2])) // через lodash 
+const oldCars = data.reduce((acc , el) => (Number(acc[2]) <Number(el[2]) ? acc : el));
+console.log(`Самый старый авто: ${oldCars} `);
+
+
+
+
+
+
+
+
+// выведите все виды замков существ через запятую Сделайте так чтобы имя каждого замка начиналась с большой буквы отсортирйте 
+const castle = _.uniq(data.map((el) => el[1].charAt(0).toUpperCase()+el[1].slice(1).toLowerCase().sort()))
+console.log(`Castless: ${castle.join(', ')}`);
+
+
+//существо с самым большым здоровьем 
+const larheHp =_.maxBy(data, (el) => Number(el[4]))
+console.log(`largest: ${larheHp[2]}` );
+
+
+// выведите средний арифметичсекий урон для каждого существа в таб если цифр две то их нужно сложить и разделить на два если цифра одна просто вернуть
+const avarageDamage = data.reduce((acc, el) => {
+  const res = el[3].split('-');
+  const avarage = res.length === 1 ? res[0] : _.mean(res.map((item) => Number(item)));
+  return{...acc, [el[2]]: avarage };
+}, {});
+  console.log(`Avarage damage: ${avarageDamage}`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
