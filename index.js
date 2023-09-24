@@ -101,6 +101,16 @@ const avarageDamage = data.reduce((acc, el) => {
 
 
 
+  // вывести список каротких описаний валют отсортированных в алфовиттном порядке 
+ const letterCode = _.uniq(data.map((el) => el[3]).sort())
+ console.log(`Curet: ${letterCode.join(', ')}`);
+ 
+
+ // вывести на экран количество валют стоимость которых лежит в диапазоне от 10 до 30 включительно 
+ const counCastle = data.filter((el) => Number(el[4]) >= 10 && Number(el[4]) <= 30)
+
+
+
 
 
 
