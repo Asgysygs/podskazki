@@ -251,6 +251,6 @@ export default () => {
         console.log(error);
       });
   });
-};V
+};
 
 // END
